@@ -6,41 +6,50 @@ from .models import Member
 class MemberModel(admin.ModelAdmin):
     list_display = (
         'surname',
-        'other_names',
-        'baptised',
-        'holy_communion',
-        'confirmed',
-        'matrimonial'
+        'full_name',
+        'phone',
+        'id_number',
+        'get_groups',
+        'profession',
     )
     list_filter = (
-        'baptised',
-        'holy_communion',
-        'confirmed',
-        'matrimonial'
+        'baptism',
+        'eucharist',
+        'confirmation',
+        'matrimony'
     )
 
-    list_display_links = ('surname', 'other_names')
-    list_editable = (
-        'baptised',
-        'holy_communion',
-        'confirmed',
-        'matrimonial'
+    list_display_links = ('surname', 'full_name', )
+    search_fields = (
+        'surname',
+        'other_names',
+        'full_name',
+        'phone',
+        'email',
+        'id_number',
+        'profession',
+        'jumuiya',
+        'family',
+        'groups',
     )
-    search_fields = ('surname', 'other_names', 'id_no', 'baptised',
-                     'holy_communion', )
-
 
     fieldsets = (
         ('NAMES', {
-            'fields': ('surname', 'other_names')
+            'fields': ('surname', 'other_names', 'full_name')
         }),
         ('BIO', {
-            'fields': ('email', 'id_no', 'category')
+            'fields': ('email', 'phone', 'id_number', 'category', 'profession')
         }),
         ('SACRAMENTS', {
-            'fields': ('baptised', 'holy_communion', 'confirmed',
-                       'matrimonial')
-        })
+            'fields': ('baptism', 'eucharist', 'confirmation', 'matrimony')
+        }),
+        ('JUMUIYA AND FAMILY', {
+            'fields': ('jumuiya', 'family')
+        }),
+        ('GROUPS', {
+            'fields': ('groups', )
+        }),
     )
+
 
 admin.site.register(Member, MemberModel)
