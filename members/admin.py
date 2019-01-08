@@ -16,7 +16,8 @@ class MemberModel(admin.ModelAdmin):
         'baptism',
         'eucharist',
         'confirmation',
-        'matrimony'
+        'matrimony',
+        'groups'
     )
 
     list_display_links = ('surname', 'full_name', )
