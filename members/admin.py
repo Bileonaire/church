@@ -9,7 +9,7 @@ class MemberModel(admin.ModelAdmin):
         'full_name',
         'phone',
         'id_number',
-        'get_groups',
+        'groups_',
         'profession',
     )
     list_filter = (
@@ -17,6 +17,8 @@ class MemberModel(admin.ModelAdmin):
         'eucharist',
         'confirmation',
         'matrimony',
+        'category',
+        'jumuiya',
         'groups'
     )
 

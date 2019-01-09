@@ -17,4 +17,4 @@ class Family(models.Model):
         verbose_name_plural = "families"
 
     def __str__(self):
-        return f'{self.full_name} {self.id_number}'
+        return f'{self.surname} - {self.full_name} - {self.id_number}'
